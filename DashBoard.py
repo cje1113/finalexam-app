@@ -13,7 +13,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import networkx as nx
 from wordcloud import WordCloud
-from konlpy.tag import Okt
 from matplotlib import font_manager
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
@@ -124,8 +123,9 @@ def cleanString(text):
 
 text_title = cleanString(text_title)
 
-okt = Okt()
-words_morphs = okt.morphs(text_title)
+
+# 형태소 분석기 대신 정규식 기반 토큰화
+words_morphs = re.findall(r"[가-힣]{2,}", text_title)
 
 ############################################
 # 불용어 로드
