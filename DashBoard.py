@@ -18,6 +18,20 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import os
 
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+
+# 한글 폰트 경로 (GitHub에 올린 폰트)
+font_path = "fonts/NotoSansCJKkr-Regular.ttf"
+
+# matplotlib 전역 폰트 설정
+font_name = font_manager.FontProperties(fname=font_path).get_name()
+rc("font", family=font_name)
+
+# 마이너스 기호 깨짐 방지
+plt.rcParams["axes.unicode_minus"] = False
+
+
 # Streamlit Cloud 한글 폰트 설정
 FONT_PATH = "fonts/NotoSansCJKkr-Regular.otf"
 
