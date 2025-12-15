@@ -304,7 +304,7 @@ normalize_map = {"스케": "스케일"}
 all_nouns = []
 for text in descriptions:
     text_cleaned = re.sub(r"[^가-힣\s]", "", text)
-    nouns = okt.nouns(text_cleaned)
+    nouns = re.findall(r"[가-힣]{2,}", text_cleaned)
     nouns = [w for w in set(nouns) if len(w) > 1 and w not in stopwords]
     nouns = [normalize_map.get(w, w) for w in nouns]
     all_nouns.append(nouns)
