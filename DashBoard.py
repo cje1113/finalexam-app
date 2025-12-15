@@ -325,13 +325,17 @@ for (n1, n2), w in filtered_edges.items():
 pos = nx.spring_layout(G, seed=42)
 fig4, ax4 = plt.subplots(figsize=(14,14))
 
+from matplotlib.font_manager import FontProperties
+
+font_prop = FontProperties(fname="fonts/NotoSansCJKkr-Regular.ttf")
+
 nx.draw_networkx(
     G,
     pos,
     ax=ax4,
     node_size=[G.degree(n)*100 for n in G.nodes()],
     width=[G[u][v]["weight"]*0.05 for u,v in G.edges()],
-    font_family="AppleGothic",
+    font_family=font_prop.get_name(),
     node_color="skyblue",
     edge_color="gray"
 )
