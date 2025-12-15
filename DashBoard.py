@@ -257,16 +257,18 @@ wc_colormap = st.sidebar.selectbox(
     index=0
 )
 
-font_path = font_manager.findfont("AppleGothic")
 text_for_wc = " ".join(words)
 
+FONT_PATH = "fonts/NotoSansCJKkr-Regular.ttf"
+
 wc = WordCloud(
-    font_path=font_path,
+    font_path=FONT_PATH,
     background_color="black",
     colormap=wc_colormap,
     max_words=50,
     collocations=False  ############# AI 코드 참조(collocations 부분) #############
 ).generate(text_for_wc)
+
 
 fig3, ax3 = plt.subplots(figsize=(10,5))
 ax3.imshow(wc)
