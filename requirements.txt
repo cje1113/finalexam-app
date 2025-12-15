@@ -5,6 +5,5 @@ altair
 seaborn
 matplotlib
 networkx
-koreanize-matplotlib
 wordcloud
 konlpy
