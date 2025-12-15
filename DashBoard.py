@@ -12,12 +12,22 @@ import altair as alt
 import seaborn as sns
 import matplotlib.pyplot as plt
 import networkx as nx
-import koreanize_matplotlib
 from wordcloud import WordCloud
 from konlpy.tag import Okt
 from matplotlib import font_manager
-import warnings
-warnings.filterwarnings("ignore")
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import os
+
+# Streamlit Cloud 한글 폰트 설정
+FONT_PATH = "fonts/NotoSansCJKkr-Regular.otf"
+
+if os.path.exists(FONT_PATH):
+    font_prop = fm.FontProperties(fname=FONT_PATH)
+    plt.rcParams["font.family"] = font_prop.get_name()
+
+plt.rcParams["axes.unicode_minus"] = False
+
 
 ############################################
 # 페이지 설정
